@@ -48,13 +48,17 @@ function PlaceDetails() {
 	}
 
 	async function createComment(commentAttributes) {
-		const response = await fetch(`http://localhost:5000/places/${place.placeId}/comments`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(commentAttributes)
-		})
+		const response = await fetch(
+      `http://localhost:5000/places/${place.placeId}/comments`,
+      {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentAttributes),
+      }
+    )
 
 		const comment = await response.json()
 
