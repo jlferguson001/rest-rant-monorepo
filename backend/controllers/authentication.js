@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
     })
   } else {
      req.session.userId = user.userId
-    res.json({ user })
+    res.json(req.currentUser.userId)
   }
 })
 
