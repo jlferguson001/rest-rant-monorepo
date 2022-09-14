@@ -105,6 +105,7 @@ router.post('/:placeId/comments', async (req, res) => {
     const comment = await Comment.create({
       ...req.body,
       authorId: req.currentUser.userId,
+      placeId: placeId
     })
 
     res.send({
